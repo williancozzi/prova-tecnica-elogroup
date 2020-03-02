@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Desafio EloGroup</title>
+
+    </head>
+    <body>
+        <form name="formCadastro" method="POST" action="algumlugar.js">
+            <label>Nome</label>
+            <input type="text" name="nome" id="nome" placeholder="ex: Gordon Freeman" required /><br/>
+
+            <label>Telefone</label>
+            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+            name="ddd" id="ddd" maxlength="2" size="2" placeholder="ex: 99 "/> - 
+            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+             name="fone" id="fone" maxlength="8" size="8" placeholder="ex: 99999999"/><br/>
+
+            <label>Como nos conheceu</label>
+            <select id="comoConheceu" />
+                <option value="tv" name="tv">TV</option>
+                <option value="internet" name="internet">Internet</option>
+                <option value="outros" name="outros">Outros</option>
+            </select>
+
+            <br/>
+            <label>Possui rede social</label>
+            <input type="radio" name="midiaSocial" id="midiaSocial" value="sim" />Sim
+            <input type="radio" name="midiaSocial" id="midiaSocial" value="nao" />Não<br/>
+
+            <label>Quais?</label>
+            <input type="checkbox" name="checkfacebook" id="checkfacebook" />Facebook
+            <input type="checkbox" name="checklinkedin" id="checklinkedin" />LinkedIn
+            <input type="checkbox" name="checkinstagram" id="checkinstagram" />Instagram<br/>
+
+            <button>
+                Enviar
+            </button>
+        </form>
+
+    </form>
+    </body>
+
+</html>
