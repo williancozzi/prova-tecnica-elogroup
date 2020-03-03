@@ -1,43 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+    <meta charset="utf-8">
     <head>
         <title>Desafio EloGroup</title>
-
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css">
+        <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <form name="formCadastro" method="POST" action="algumlugar.js">
-            <label>Nome</label>
-            <input type="text" name="nome" id="nome" placeholder="ex: Gordon Freeman" required /><br/>
+        <form name="formCadastro" id="formCadastro" method="POST" action="algumlugar.js" onsubmit="return confirmar()">
+            <div class="form-group">
+                <label>Nome:</label>
+                <input type="text" id="nome" placeholder="ex: Gordon Freeman" class="form-control" /> <br>
+            </div>
 
-            <label>Telefone</label>
-            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-            name="ddd" id="ddd" maxlength="2" size="2" placeholder="ex: 99 "/> - 
-            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-             name="fone" id="fone" maxlength="8" size="8" placeholder="ex: 99999999"/><br/>
+            <div class="form-group">
+                <label>Telefone:</label>
+                <input type="text" onkeyup="aceitarSomenteNumeros(this);"
+                name="ddd" id="ddd" maxlength="2" size="3" placeholder="ex: 99 " class="form-control" /> - 
+                <input type="text" onkeyup="aceitarSomenteNumeros(this);"
+                name="fone" id="fone" maxlength="8" size="10" placeholder="ex: 99999999" class="form-control" /><br/>
+            </div>
 
-            <label>Como nos conheceu</label>
-            <select id="comoConheceu" />
-                <option value="tv" name="tv">TV</option>
-                <option value="internet" name="internet">Internet</option>
-                <option value="outros" name="outros">Outros</option>
-            </select>
+            <div class="form-group">
+                <label>Como nos conheceu:</label>
+                <select id="comoConheceu" class="form-control" />
+                    <option value="tv" name="tv">TV</option>
+                    <option value="internet" name="internet">Internet</option>
+                    <option value="outros" name="outros">Outros</option>
+                </select>
+            </div>
 
-            <br/>
-            <label>Possui rede social</label>
-            <input type="radio" name="midiaSocial" id="midiaSocial" value="sim" />Sim
-            <input type="radio" name="midiaSocial" id="midiaSocial" value="nao" />Não<br/>
+            <div class="form-group">
+                <label>Possui rede social:</label>
+                <input type="radio" name="midiaRadio" id="naoTemMidiaSocial" value="sim" class="form-control" />Não
+                <input type="radio" onclick="mostrarMidiasSociais('midias')" name="midiaRadio" id="temMidiaSocial" value="nao" class="form-control" />Sim <br/>
+            </div>
 
-            <label>Quais?</label>
-            <input type="checkbox" name="checkfacebook" id="checkfacebook" />Facebook
-            <input type="checkbox" name="checklinkedin" id="checklinkedin" />LinkedIn
-            <input type="checkbox" name="checkinstagram" id="checkinstagram" />Instagram<br/>
+            <div id="midias" style="display: none">  
+                <label>Quais?</label>
+                <input type="checkbox" name="checkfacebook" id="checkfacebook" class="form-control"/>Facebook
+                <input type="checkbox" name="checklinkedin" id="checklinkedin" class="form-control"/>LinkedIn
+                <input type="checkbox" name="checkinstagram" id="checkinstagram" class="form-control"/>Instagram<br/></div>          
 
-            <button>
+            <button class="btn btn-primary" type="submit" id="enviar">
                 Enviar
             </button>
         </form>
-
-    </form>
     </body>
-
+    <script src="js/main.js"></script>
 </html>
