@@ -4,11 +4,12 @@
         var nome = document.getElementById('nome').value.split(' ');
         if(nome.length > 1) {
             alert('Enviado com sucesso.');
+            document.getElementById('formCadastro').submit();
         } else {
             alert('O nome deve possuir pelo menos um sobrenome.');
         }
     }, false);
-    
+
 function aceitarSomenteNumeros(num) {
     var er = /[^0-9]/;
     er.lastIndex = 0;

@@ -5,12 +5,9 @@
         <title>Desafio EloGroup</title>
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css">
-        <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <form name="formCadastro" id="formCadastro" method="POST" action="algumlugar.js" onsubmit="return confirmar()">
+        <form name="formCadastro" id="formCadastro" method="POST" action="algumlugar.js">
             <div class="form-group">
                 <label>Nome:</label>
                 <input type="text" id="nome" placeholder="ex: Gordon Freeman" class="form-control" /> <br>
@@ -45,7 +42,7 @@
                 <input type="checkbox" name="checklinkedin" id="checklinkedin" class="form-control"/>LinkedIn
                 <input type="checkbox" name="checkinstagram" id="checkinstagram" class="form-control"/>Instagram<br/></div>          
 
-            <button class="btn btn-primary" type="submit" id="enviar">
+            <button class="btn btn-primary" id="enviar" type="button">
                 Enviar
             </button>
         </form>
