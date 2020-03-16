@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <head>
         <link rel="stylesheet" href="css/style.css">
         <title>Desafio EloGroup</title>
     </head>
     <body>
-        <form class="formCadastro" name="formCadastro" id="formCadastro">
+        <form class="formCadastro" name="formCadastro" id="formCadastro" method="POST" action="http://localhost:8080">
             <div class="form-group">
                 <label>Nome:</label>
                 <input type="text" id="nome" placeholder="ex: Gordon Freeman" /> <br>
@@ -31,15 +32,15 @@
 
             <div class="form-group">
                 <label>Possui rede social:</label>
-                <input type="radio" onclick="esconderMidiasSociais('midias')" name="midiaRadio" id="naoTemMidiaSocial" value="sim"  />Não
-                <input type="radio" onclick="mostrarMidiasSociais('midias')" name="midiaRadio" id="temMidiaSocial" value="nao"  />Sim <br/>
+                <input type="radio" onclick="esconderMidiasSociais('midias')" name="midiaRadio" id="naoTemMidiaSocial" value="n"  />Não
+                <input type="radio" onclick="mostrarMidiasSociais('midias')" name="midiaRadio" id="temMidiaSocial" value="s"  />Sim <br/>
             </div>
 
             <div id="midias" style="display: none">  
                 <label>Quais?</label>
-                <input type="checkbox" name="checkfacebook" id="checkfacebook" />Facebook
-                <input type="checkbox" name="checklinkedin" id="checklinkedin" />LinkedIn
-                <input type="checkbox" name="checkinstagram" id="checkinstagram" />Instagram<br/></div>          
+                <input type="checkbox" name="checkfacebook" id="checkfacebook" value="s" />Facebook
+                <input type="checkbox" name="checklinkedin" id="checklinkedin" value="s" />LinkedIn
+                <input type="checkbox" name="checkinstagram" id="checkinstagram" value="s" />Instagram<br/></div>          
 
             <button id="enviar" type="button">
                 Enviar
