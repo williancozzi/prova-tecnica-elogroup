@@ -1,12 +1,31 @@
+var dadosParaEnviar = null;
+
 //adicionando listener no botao enviar para checar a situação do form nome
 var button = document.getElementById("enviar");
-button.addEventListener("click", function (e) {
+button.addEventListener("click", function(e) {
     var nome = document.getElementById('nome').value.split(' ', 2);
     if ((nome.length < 2) || (nome[0] == '') || (nome[1] == '')) {
         alert('O nome deve possuir pelo menos um sobrenome.');
     } else {
-        document.getElementById('formCadastro');
         alert('Enviado com sucesso.');
+        getDados();
+        document.getElementById('formCadastro');
+        (async() => {
+            const rawResponse = await fetch("http://localhost:8082", {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dadosParaEnviar)
+            });
+            const content = await rawResponse.json();
+
+            console.log(content);
+        })();
+        //limpar os forms pro proximo uso
+        document.forms[0].reset();
+        zerarCheckboxes();
     }
 }, false);
 
@@ -32,10 +51,15 @@ function mostrarMidiasSociais(el) {
 
 //esconder as midias sociais 
 function esconderMidiasSociais(el) {
+    zerarCheckboxes();
+    document.getElementById(el).style.display = 'none';
+}
+
+function zerarCheckboxes() {
+    midias = [];
     document.getElementById('checkfacebook').checked = false;
     document.getElementById('checklinkedin').checked = false;
     document.getElementById('checkinstagram').checked = false;
-    document.getElementById(el).style.display = 'none';
 }
 
 //passando pra json 
@@ -46,12 +70,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let midias = [];
 
-const getDados = (ev) => {
+function getDados(ev) {
 
-    ev.preventDefault();  //parar o submit default do form 
+    let dado = {
+        nome: document.getElementById('nome').value,
+        ddd: document.getElementById('ddd').value,
+        fone: document.getElementById('fone').value,
+        comoConheceu: document.getElementById('comoConheceu').value,
+        midias: midias.length != 0 ? midias : midias
+    }
 
-    if (document.getElementById('temMidiaSocial').value == 's') {
-        
+    if (document.getElementById('temMidiaSocial').value == 's') { //checar se o radio midia social está selecionado
+
         if (document.getElementById('checkfacebook').checked == true) {
             midias.push('Facebook');
         }
@@ -60,37 +90,11 @@ const getDados = (ev) => {
         }
         if (document.getElementById('checkinstagram').checked == true) {
             midias.push('Instagram');
-            
+
         }
     }
+    dadosParaEnviar = dado;
 
-    let dado = {
-        nome: document.getElementById('nome').value,
-        ddd: document.getElementById('ddd').value,
-        fone: document.getElementById('fone').value,
-        comoConheceu: document.getElementById('comoConheceu').value,
-        midias: midias.length != 0 ? midias : null
-    }
-
-    // if (document.getElementById('temMidiaSocial').value == 's'){
-    //     dad
-    // }
-
-    //limpar os forms pro proximo uso
-    document.forms[0].reset();
-    midias = [];
     console.log(dado);
 
-    console.log(document.getElementById('temMidiaSocial').value);
-    let pre = document.querySelector('#msg pre');
-    //pre.textContent = '\n' + JSON.stringify(dados, '\t', 2);
-
-    //salvando localmente
-    //localStorage.setItem('listaDados', JSON.stringify(dados));
 }
-
-//as checkbox de midias sociais devem ser enviadas em um Array se possuir midia social
-
-
-
-
