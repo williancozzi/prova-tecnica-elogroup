@@ -32,7 +32,9 @@ function mostrarMidiasSociais(el) {
 
 //esconder as midias sociais 
 function esconderMidiasSociais(el) {
-
+    document.getElementById('checkfacebook').checked = false;
+    document.getElementById('checklinkedin').checked = false;
+    document.getElementById('checkinstagram').checked = false;
     document.getElementById(el).style.display = 'none';
 }
 
@@ -41,42 +43,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('enviar').addEventListener('click', getDados);
 });
-let dados = [];
+
+let midias = [];
 
 const getDados = (ev) => {
 
     ev.preventDefault();  //parar o submit default do form 
+
+    if (document.getElementById('temMidiaSocial').value == 's') {
+        
+        if (document.getElementById('checkfacebook').checked == true) {
+            midias.push('Facebook');
+        }
+        if (document.getElementById('checklinkedin').checked == true) {
+            midias.push('Linkedin');
+        }
+        if (document.getElementById('checkinstagram').checked == true) {
+            midias.push('Instagram');
+            
+        }
+    }
+
     let dado = {
         nome: document.getElementById('nome').value,
         ddd: document.getElementById('ddd').value,
         fone: document.getElementById('fone').value,
         comoConheceu: document.getElementById('comoConheceu').value,
-        midias: document.getElementById('temMidiaSocial').checked ? 's' : 'n',
-        facebook: document.getElementById('checkfacebook').checked ? 's' : 'n',
-        linkedin: document.getElementById('checklinkedin').checked ? 's' : 'n',
-        instagram: document.getElementById('checkinstagram').checked ? 's' : 'n'
+        midias: midias.length != 0 ? midias : null
     }
 
-    //limpar os forms pro proximo uso
-    dados.push(dado);
-    document.forms[0].reset();
+    // if (document.getElementById('temMidiaSocial').value == 's'){
+    //     dad
+    // }
 
-    console.log('added', { dados });
+    //limpar os forms pro proximo uso
+    document.forms[0].reset();
+    midias = [];
+    console.log(dado);
+
+    console.log(document.getElementById('temMidiaSocial').value);
     let pre = document.querySelector('#msg pre');
     //pre.textContent = '\n' + JSON.stringify(dados, '\t', 2);
 
     //salvando localmente
-    localStorage.setItem('listaDados', JSON.stringify(dados));
+    //localStorage.setItem('listaDados', JSON.stringify(dados));
 }
 
 //as checkbox de midias sociais devem ser enviadas em um Array se possuir midia social
-let socialMedia;
-let arrSocialMedia = [];
 
-if (arrSocialMedia.value) {
 
-    socialMedia = document.querySelectorAll("#formCadastro [name=temMidiaSocial]:checked");
-    for (let i = 0; i < socialMedia.length; i++) {
-        arrSocialMedia.push(socialMedia[i].id);
-    }
-}
+
+
