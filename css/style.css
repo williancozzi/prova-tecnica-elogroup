@@ -2,9 +2,3 @@ body {
     background-color: aliceblue;
 }
 
-input {
-    border: none;
-    border-radius: 10px;
-    background-color: chartreuse;
-    padding: 4px;
-}

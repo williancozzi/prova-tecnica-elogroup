@@ -1,6 +1,6 @@
 var dadosParaEnviar = null;
 
-//adicionando listener no botao enviar para checar a situação do form nome
+//adicionando listener no botao enviar para checar a situação do form nome, e caso validado, preparar para envio o json no endpoint
 var button = document.getElementById("enviar");
 button.addEventListener("click", function(e) {
     var nome = document.getElementById('nome').value.split(' ', 2);
@@ -11,7 +11,7 @@ button.addEventListener("click", function(e) {
         getDados();
         document.getElementById('formCadastro');
         (async() => {
-            const rawResponse = await fetch("http://localhost:8082", {
+            const rawResponse = await fetch("http://localhost:8080", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -74,8 +74,7 @@ function getDados(ev) {
 
     let dado = {
         nome: document.getElementById('nome').value,
-        ddd: document.getElementById('ddd').value,
-        fone: document.getElementById('fone').value,
+        telefone: document.getElementById('ddd').value + '-' + document.getElementById('fone').value,
         comoConheceu: document.getElementById('comoConheceu').value,
         midias: midias.length != 0 ? midias : midias
     }
@@ -95,6 +94,6 @@ function getDados(ev) {
     }
     dadosParaEnviar = dado;
 
-    console.log(dado);
+
 
 }

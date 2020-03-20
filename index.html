@@ -32,15 +32,18 @@
 
             <div class="form-group">
                 <label>Possui rede social:</label>
-                <input type="radio" onclick="esconderMidiasSociais('midias')" name="midiaRadio" id="naoTemMidiaSocial" value="n"  />Não
-                <input type="radio" onclick="mostrarMidiasSociais('midias')" name="midiaRadio" id="temMidiaSocial" value="s"  />Sim <br/>
+                <input type="radio" onclick="esconderMidiasSociais('midias')" name="midiaRadio" id="naoTemMidiaSocial" value="n" /><label for="naoTemMidiaSocial">Não</label>
+                <input type="radio" onclick="mostrarMidiasSociais('midias')" name="midiaRadio" id="temMidiaSocial" value="s" /><label for="temMidiaSocial">Sim</label> <br/>
             </div>
 
             <div id="midias" style="display: none">  
                 <label>Quais?</label>
-                <input type="checkbox" name="checkfacebook" id="checkfacebook" value="fb" />Facebook
-                <input type="checkbox" name="checklinkedin" id="checklinkedin" value="in" />LinkedIn
-                <input type="checkbox" name="checkinstagram" id="checkinstagram" value="ig" />Instagram<br/></div>          
+                
+                <input type="checkbox" name="checkfacebook" id="checkfacebook" value="fb" /> <label for="checkfacebook">Facebook</label>
+                <input type="checkbox" name="checklinkedin" id="checklinkedin" value="in" /> <label for="checklinkedin">LinkedIn</label>
+                <input type="checkbox" name="checkinstagram" id="checkinstagram" value="ig" /> <label for="checkinstagram">Instagram</label>
+                <br/>
+            </div>          
 
             <button id="enviar" type="button">
                 Enviar
