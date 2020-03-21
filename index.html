@@ -1,54 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <head>
-        <link rel="stylesheet" href="css/style.css">
-        <title>Desafio EloGroup</title>
-    </head>
-    <body>
-        <form class="formCadastro" name="formCadastro" id="formCadastro" method="POST" action="http://localhost:8080">
-            <div class="form-group">
-                <label>Nome:</label>
-                <input type="text" id="nome" placeholder="ex: Gordon Freeman" /> <br>
-            </div>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <head>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Desafio EloGroup</title>
+  </head>
+  <body>
+    <form
+      class="formCadastro"
+      name="formCadastro"
+      id="formCadastro"
+      method="POST"
+      action="http://localhost:8080"
+    >
+      <div class="form-group">
+        <input type="text" id="nome" placeholder="Nome e Sobrenome" /> <br />
+      </div>
 
-            <div class="form-group">
-                <label>Telefone:</label>
-                <input type="text" onkeyup="aceitarSomenteNumeros(this);"
-                name="ddd" id="ddd" maxlength="2" size="3" placeholder="ex: 99 "  /> - 
-                <input type="text" onkeyup="aceitarSomenteNumeros(this);"
-                name="fone" id="fone" maxlength="8" size="10" placeholder="ex: 99999999" /><br/>
-            </div>
+      <div class="contato">
+        <div class="form-group">
+          <input
+            type="text"
+            onkeyup="aceitarSomenteNumeros(this);"
+            name="ddd"
+            id="ddd"
+            maxlength="2"
+            size="3"
+            placeholder="DDD"
+          />
+          <input
+            type="text"
+            onkeyup="aceitarSomenteNumeros(this);"
+            name="fone"
+            id="fone"
+            maxlength="8"
+            size="10"
+            placeholder="Telefone"
+          /><br />
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label>Como nos conheceu:</label>
-                <select id="comoConheceu"  />
-                    <option value="tv" name="tv">TV</option>
-                    <option value="internet" name="internet">Internet</option>
-                    <option value="outros" name="outros">Outros</option>
-                </select>
-            </div>
+      <div class="form-group como-conheceu">
+        <label>Como nos conheceu:</label>
+        <select id="comoConheceu">
+          <option value="tv" name="tv">TV</option>
+          <option value="internet" name="internet">Internet</option>
+          <option value="outros" name="outros">Outros</option>
+        </select>
+      </div>
 
-            <div class="form-group">
-                <label>Possui rede social:</label>
-                <input type="radio" onclick="esconderMidiasSociais('midias')" name="midiaRadio" id="naoTemMidiaSocial" value="n" /><label for="naoTemMidiaSocial">Não</label>
-                <input type="radio" onclick="mostrarMidiasSociais('midias')" name="midiaRadio" id="temMidiaSocial" value="s" /><label for="temMidiaSocial">Sim</label> <br/>
-            </div>
+      <div class="form-group select-midias">
+        <label>Possui rede social:</label>
+        <input
+          type="radio"
+          onclick="esconderMidiasSociais('midias')"
+          name="midiaRadio"
+          id="naoTemMidiaSocial"
+          value="n"
+          checked
+        /><label for="naoTemMidiaSocial">Não</label>
+        <input
+          type="radio"
+          onclick="mostrarMidiasSociais('midias')"
+          name="midiaRadio"
+          id="temMidiaSocial"
+          value="s"
+        /><label for="temMidiaSocial">Sim</label> <br />
+      </div>
 
-            <div id="midias" style="display: none">  
-                <label>Quais?</label>
-                
-                <input type="checkbox" name="checkfacebook" id="checkfacebook" value="fb" /> <label for="checkfacebook">Facebook</label>
-                <input type="checkbox" name="checklinkedin" id="checklinkedin" value="in" /> <label for="checklinkedin">LinkedIn</label>
-                <input type="checkbox" name="checkinstagram" id="checkinstagram" value="ig" /> <label for="checkinstagram">Instagram</label>
-                <br/>
-            </div>          
+      <div id="midias" style="display: none">
+        <label>Quais?</label>
+        <div class="opcoes">
+          <input
+            type="checkbox"
+            name="checkfacebook"
+            id="checkfacebook"
+            value="fb"
+          />
+          <label for="checkfacebook">Facebook</label>
+          <input
+            type="checkbox"
+            name="checklinkedin"
+            id="checklinkedin"
+            value="in"
+          />
+          <label for="checklinkedin">LinkedIn</label>
+          <input
+            type="checkbox"
+            name="checkinstagram"
+            id="checkinstagram"
+            value="ig"
+          />
+          <label for="checkinstagram">Instagram</label>
+        </div>
+      </div>
 
-            <button id="enviar" type="button">
-                Enviar
-            </button>
-        </form>
-    </body>
-    <script src="js/main.js"></script>
+      <button id="enviar" type="button">
+        Enviar
+      </button>
+    </form>
+  </body>
+  <script src="js/main.js"></script>
 </html>
