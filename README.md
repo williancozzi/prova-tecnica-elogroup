@@ -1,7 +1,17 @@
 # prova-tecnica-elogroup
-//explique a hierarquia dos arquivos
 
+## hierarquia dos arquivos
 
-//Willian Cozzi Candido na plataforma Gupy;
+![](https://i.imgur.com/pj69Kf0.png)
 
-//compartilhado em modo somente leitura com o seguinte usuário: elogroup-t
+## Usuário no Gupy
+Willian Cozzi Candido na plataforma Gupy;
+
+## Tecnologias usadas
+> Html
+
+> CSS
+
+> JavaScript
+
+todas nativas sem o uso de nenhum framework
