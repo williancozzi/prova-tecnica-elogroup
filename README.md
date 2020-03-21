@@ -1,6 +1,6 @@
 # prova-tecnica-elogroup
 
-## hierarquia dos arquivos
+## Hierarquia dos arquivos
 
 ![](https://i.imgur.com/pj69Kf0.png)
 
@@ -14,4 +14,4 @@ Willian Cozzi Candido na plataforma Gupy;
 
 > JavaScript
 
-todas nativas sem o uso de nenhum framework
+Todas nativas sem o uso de nenhum framework
